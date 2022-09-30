@@ -35,7 +35,7 @@
   height: 100%;
 }
 .modal-container {
-  border: solid;
+  border: 0.2px solid black;
   border-radius: 10px;
   background: #fff;
   position: relative;
@@ -53,3 +53,24 @@
   font-weight: bold;
   cursor: pointer;
 } */
+.listItem {
+  display: flex;
+  flex-direction: row;
+  border: solid;
+  justify-content: center;
+  align-items: center;
+}
+.listItem:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+.listItemDivider {
+}
+.listItemTitle {
+  padding: 0;
+  margin: 0;
+}
+.listItemPara {
+  padding: 0;
+  margin: 0;
+}

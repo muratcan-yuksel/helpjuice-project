@@ -12,7 +12,7 @@ function keydownFunction(event) {
 inputField.addEventListener("keydown", keydownFunction);
 //modal
 const modals = document.querySelectorAll("[data-modal]");
-
+//modal-exit should be added to individual list elements also
 modals.forEach(function (trigger) {
   trigger.addEventListener("click", function (event) {
     event.preventDefault();
