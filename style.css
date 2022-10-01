@@ -1,3 +1,12 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
 #main {
   display: flex;
   flex-direction: column;
@@ -15,15 +24,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  background-color: #f4f4f4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-}
 button {
   background: #47a386;
   color: white;
@@ -34,18 +34,18 @@ button {
 }
 .modal-container {
   /* display: none; */
-  position: fixed;
+  /* position: relative;
   top: 0;
   left: 0;
-  /* width: 100vw;
-  height: 100vh; */
+  width: auto;
+  height: auto; */
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  /* border: 5px solid red; */
+  border: 5px solid red;
 }
 .modal-container.show {
   opacity: 1;
