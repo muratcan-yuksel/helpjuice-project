@@ -53,6 +53,7 @@
   font-weight: bold;
   cursor: pointer;
 } */
+/* modal list items start */
 .listItem {
   display: flex;
   flex-direction: row;
