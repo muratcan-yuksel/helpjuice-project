@@ -4,6 +4,7 @@
 // });
 let inputField = document.querySelector(".inputField");
 const modal_container = document.getElementById("modal_container");
+const modal = document.getElementById("modal");
 // const main = document.getElementById("main");
 
 //keydown function that reads the slash key and opens the modal
@@ -28,7 +29,7 @@ document.addEventListener("keydown", (e) => {
 //close modal if clicked outside of modal
 document.body.addEventListener("click", (e) => {
   console.log("body");
-  if (e.target != open) {
+  if (e.target != modal) {
     modal_container.classList.remove("show");
   }
 });
