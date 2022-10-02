@@ -6,6 +6,7 @@ let inputField = document.querySelector(".inputField");
 const modal_container = document.getElementById("modal_container");
 const modal = document.getElementById("modal");
 // const main = document.getElementById("main");
+//returns a nodelist of all the elements with the class name of "listItem"
 const listItems = document.querySelectorAll(".listItem");
 
 //keydown function that reads the slash key and opens the modal
@@ -48,3 +49,27 @@ document.body.addEventListener("click", (e) => {
 // });
 
 console.log(listItems[4].id);
+
+//for each list item, add an event listener that eventually returns the id of the list item
+//wherever its clicked, the function will look for the appropriate parent element to get the id
+listItems.forEach((item) => {
+  console.log(item);
+  item.addEventListener("click", (e) => {
+    // e.stopPropagation();
+    console.log(e.target);
+    console.log(e.target.textContent);
+    //  console.log(e.target.parentElement.parentElement);
+    inputField.textContent = e.target.textContent;
+    if (
+      e.target.classList.contains("listItemTitle") ||
+      e.target.classList.contains("listItemPara")
+    ) {
+      console.log(e.target.parentElement.parentElement.id);
+    } else if (e.target.classList.contains("listItemDivider")) {
+      console.log(e.target.parentElement.id);
+    } else if (e.target.classList.contains("icon")) {
+      console.log(e.target.parentElement.id);
+    }
+    modal_container.classList.remove("show");
+  });
+});
