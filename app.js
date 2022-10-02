@@ -31,6 +31,8 @@ basicBlocks.forEach((block) => {
   document.getElementById("basicBlocks").appendChild(container);
 });
 
+//basic blocks append logic ends
+
 let inputField = document.querySelector(".inputField");
 const modal_container = document.getElementById("modal_container");
 const modal = document.getElementById("modal");
@@ -71,26 +73,30 @@ document.body.addEventListener("click", (e) => {
 
 console.log(listItems[4].id);
 
+// item id is a global variable
+let itemId;
 //for each list item, add an event listener that eventually returns the id of the list item
 //wherever its clicked, the function will look for the appropriate parent element to get the id
 listItems.forEach((item) => {
   console.log(item);
   item.addEventListener("click", (e) => {
-    // e.stopPropagation();
-    console.log(e.target);
-    console.log(e.target.textContent);
-    //  console.log(e.target.parentElement.parentElement);
-    inputField.textContent = e.target.textContent;
     if (
       e.target.classList.contains("listItemTitle") ||
       e.target.classList.contains("listItemPara")
     ) {
       console.log(e.target.parentElement.parentElement.id);
-    } else if (e.target.classList.contains("listItemDivider")) {
+      itemId = e.target.parentElement.parentElement.id;
+    } else if (
+      e.target.classList.contains("listItemDivider") ||
+      e.target.classList.contains("icon")
+    ) {
       console.log(e.target.parentElement.id);
-    } else if (e.target.classList.contains("icon")) {
-      console.log(e.target.parentElement.id);
+      itemId = e.target.parentElement.id;
+    } else {
+      console.log(e.target.id);
+      itemId = e.target.id;
     }
+    console.log(itemId + " is item id");
     modal_container.classList.remove("show");
   });
 });
