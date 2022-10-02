@@ -41,13 +41,6 @@ document.body.addEventListener("click", (e) => {
   }
 });
 
-//add event to inputfield on change
-// inputField.addEventListener("change", (e) => {
-//   console.log("inputField");
-//   console.log(inputField.textContent);
-//   console.log(e);
-// });
-
 console.log(listItems[4].id);
 
 //for each list item, add an event listener that eventually returns the id of the list item
