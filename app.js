@@ -47,4 +47,4 @@ document.body.addEventListener("click", (e) => {
 //   console.log(e);
 // });
 
-console.log(listItems);
+console.log(listItems[4].id);
