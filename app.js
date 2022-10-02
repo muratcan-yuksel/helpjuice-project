@@ -1,41 +1,6 @@
-//create the html and append it
-
-const basicBlocks = [
-  {
-    container: { type: "div", class: "listItem", id: "itemText" },
-    image: { type: "img", class: "icon", src: "/assets/text.png" },
-    divider: { type: "div", class: "listItemDivider" },
-    title: { type: "h4", class: "listItemTitle", text: "Text" },
-    para: {
-      type: "p",
-      class: "listItemPara",
-      text: "Just start writing with plain text.",
-    },
-  },
-  {
-    container: { type: "div", class: "listItem", id: "itemText" },
-    image: { type: "img", class: "icon", src: "/assets/text.png" },
-    divider: { type: "div", class: "listItemDivider" },
-    title: { type: "h4", class: "listItemTitle", text: "Text" },
-    para: {
-      type: "p",
-      class: "listItemPara",
-      text: "Just start writing with plain text.",
-    },
-  },
-  {
-    container: { type: "div", class: "listItem", id: "itemText" },
-    image: { type: "img", class: "icon", src: "/assets/text.png" },
-    divider: { type: "div", class: "listItemDivider" },
-    title: { type: "h4", class: "listItemTitle", text: "Text" },
-    para: {
-      type: "p",
-      class: "listItemPara",
-      text: "Just start writing with plain text.",
-    },
-  },
-];
-
+//import necessary html elements
+import basicBlocks from "./basicBlocks.js";
+//append elements to the modal
 basicBlocks.forEach((block) => {
   const container = document.createElement(block.container.type);
   container.classList.add(block.container.class);
