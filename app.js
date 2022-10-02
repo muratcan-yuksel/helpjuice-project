@@ -1,11 +1,22 @@
-// const close = document.getElementById("close");
-// close.addEventListener("click", () => {
-//   modal_container.classList.remove("show");
-// });
+//create the html and append it
+
+const basicBlocks = [
+  {
+    container: { type: "div", class: "listItem", id: "itemText" },
+    image: { type: "img", class: "icon", src: "/assets/text.png" },
+    divider: { type: "div", class: "listItemDivider" },
+    title: { type: "h4", class: "listItemTitle", text: "Text" },
+    para: {
+      type: "p",
+      class: "listItemPara",
+      text: "Just start writing with plain text.",
+    },
+  },
+];
+
 let inputField = document.querySelector(".inputField");
 const modal_container = document.getElementById("modal_container");
 const modal = document.getElementById("modal");
-// const main = document.getElementById("main");
 //returns a nodelist of all the elements with the class name of "listItem"
 const listItems = document.querySelectorAll(".listItem");
 
