@@ -6,6 +6,7 @@ let inputField = document.querySelector(".inputField");
 const modal_container = document.getElementById("modal_container");
 const modal = document.getElementById("modal");
 // const main = document.getElementById("main");
+const listItems = document.querySelectorAll(".listItem");
 
 //keydown function that reads the slash key and opens the modal
 function keydownFunction(event) {
@@ -45,3 +46,5 @@ document.body.addEventListener("click", (e) => {
 //   console.log(inputField.textContent);
 //   console.log(e);
 // });
+
+console.log(listItems);
