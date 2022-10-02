@@ -12,7 +12,59 @@ const basicBlocks = [
       text: "Just start writing with plain text.",
     },
   },
+  {
+    container: { type: "div", class: "listItem", id: "itemText" },
+    image: { type: "img", class: "icon", src: "/assets/text.png" },
+    divider: { type: "div", class: "listItemDivider" },
+    title: { type: "h4", class: "listItemTitle", text: "Text" },
+    para: {
+      type: "p",
+      class: "listItemPara",
+      text: "Just start writing with plain text.",
+    },
+  },
+  {
+    container: { type: "div", class: "listItem", id: "itemText" },
+    image: { type: "img", class: "icon", src: "/assets/text.png" },
+    divider: { type: "div", class: "listItemDivider" },
+    title: { type: "h4", class: "listItemTitle", text: "Text" },
+    para: {
+      type: "p",
+      class: "listItemPara",
+      text: "Just start writing with plain text.",
+    },
+  },
 ];
+
+basicBlocks.forEach((block) => {
+  const container = document.createElement(block.container.type);
+  container.classList.add(block.container.class);
+  container.id = block.container.id;
+
+  const image = document.createElement(block.image.type);
+  image.classList.add(block.image.class);
+  image.src = block.image.src;
+
+  const divider = document.createElement(block.divider.type);
+  divider.classList.add(block.divider.class);
+
+  const title = document.createElement(block.title.type);
+  title.classList.add(block.title.class);
+  title.textContent = block.title.text;
+
+  const para = document.createElement(block.para.type);
+  para.classList.add(block.para.class);
+  para.textContent = block.para.text;
+
+  container.appendChild(image);
+
+  container.appendChild(divider);
+
+  divider.appendChild(title);
+  divider.appendChild(para);
+
+  document.getElementById("basicBlocks").appendChild(container);
+});
 
 let inputField = document.querySelector(".inputField");
 const modal_container = document.getElementById("modal_container");
