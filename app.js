@@ -33,11 +33,21 @@ basicBlocks.forEach((block) => {
 
 //basic blocks append logic ends
 
-let inputField = document.querySelector(".inputField");
 const modal_container = document.getElementById("modal_container");
 const modal = document.getElementById("modal");
 //returns a nodelist of all the elements with the class name of "listItem"
 const listItems = document.querySelectorAll(".listItem");
+
+//create a new input field and append it to the inputWrapper class
+function createInputField() {
+  const inputWrapper = document.querySelector(".inputWrapper");
+  const newinputField = document.createElement("INPUT");
+  newinputField.classList.add("inputField");
+  newinputField.type = "text";
+  newinputField.placeholder = "Type '/' for commands";
+  inputWrapper.appendChild(newinputField);
+}
+createInputField();
 
 //keydown function that reads the slash key and opens the modal
 function keydownFunction(event) {
@@ -53,11 +63,21 @@ function keydownFunction(event) {
     console.log("back");
   } else if (x == "Enter") {
     console.log("enter");
+    foo();
+    createInputField();
+    inputField = document.querySelectorAll(".inputField");
   }
 }
+let inputField = document.querySelectorAll(".inputField");
 //call the modal opening keydown function
-inputField.addEventListener("keydown", keydownFunction);
-
+function foo() {
+  inputField.forEach((input) => {
+    input.addEventListener("keydown", keydownFunction);
+    console.log(input);
+  });
+  console.log(inputField);
+}
+foo();
 //close modal if escape key is clicked
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
