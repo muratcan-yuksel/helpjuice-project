@@ -51,6 +51,8 @@ function keydownFunction(event) {
   } else if (x == "Backspace") {
     modal_container.classList.remove("show");
     console.log("back");
+  } else if (x == "Enter") {
+    console.log("enter");
   }
 }
 //call the modal opening keydown function
