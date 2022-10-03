@@ -37,18 +37,22 @@ const modal_container = document.getElementById("modal_container");
 const modal = document.getElementById("modal");
 //returns a nodelist of all the elements with the class name of "listItem"
 const listItems = document.querySelectorAll(".listItem");
+let currentInputField;
 
 //create a new input field and append it to the inputWrapper class
 function createInputField() {
   const inputWrapper = document.querySelector(".inputWrapper");
   const newinputField = document.createElement("INPUT");
   newinputField.classList.add("inputField");
+  // console.log(inputField.length);
+  newinputField.setAttribute("id", inputField.length);
   newinputField.type = "text";
   newinputField.placeholder = "Type '/' for commands";
   inputWrapper.appendChild(newinputField);
 }
 // createInputField();
 
+let inputFieldArray = [];
 //keydown function that reads the slash key and opens the modal
 function keydownFunction(event) {
   let x = event.key;
@@ -61,30 +65,64 @@ function keydownFunction(event) {
   } else if (x == "Backspace") {
     modal_container.classList.remove("show");
     console.log("back");
+    deleteInputField();
   } else if (x == "Enter") {
     console.log("enter");
     createInputField();
     inputField = document.querySelectorAll(".inputField");
+    // inputFieldArray.push(inputField[inputField.length - 1]);
+    console.log(inputFieldArray);
     addKeydownFunctionToInputFields();
   }
 }
-
+//get input fields here specifically for the keydown function to be attached
 let inputField = document.querySelectorAll(".inputField");
-//call the modal opening keydown function
+//add the modal opening keydown function to each individual input field
 function addKeydownFunctionToInputFields() {
   inputField.forEach((input) => {
     input.addEventListener("keydown", keydownFunction);
+    input.addEventListener("click", getId);
     console.log(input);
+    // console.log(Array.from(inputField).indexOf(input));
   });
   console.log(inputField);
 }
 addKeydownFunctionToInputFields();
+
+//get the id of the clicked input field
+function getId() {
+  let id = this.id;
+  console.log(id);
+  currentInputField = id;
+  return id;
+}
+
+//call getId function when input field is clicked
+// inputField.forEach((input) => {
+//   input.addEventListener("click", getId);
+// });
+
 //close modal if escape key is clicked
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     modal_container.classList.remove("show");
   }
 });
+
+//delete input field if backspace is clicked and there is no text in the input field
+function deleteInputField() {
+  // const inputWrapper = document.querySelector(".inputWrapper");
+  // const inputField = document.querySelectorAll(".inputField");
+  // inputField.forEach((input) => {
+  //   if (input.textContent == "") {
+  //     inputWrapper.removeChild(input);
+  //   }
+  // });
+  console.log(currentInputField);
+  const currentNodeChild = document.getElementById(currentInputField);
+  //remove the current input field
+  currentNodeChild.remove();
+}
 
 //close modal if clicked outside of modal
 document.body.addEventListener("click", (e) => {
