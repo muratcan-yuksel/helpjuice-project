@@ -121,8 +121,13 @@ function deleteInputField() {
   // });
   console.log(currentInputField);
   const currentNodeChild = document.getElementById(currentInputField);
+  console.log(currentNodeChild.value.length);
   //remove the current input field
-  currentNodeChild.remove();
+  if (currentNodeChild.value.length == 0 && currentInputField != 0) {
+    currentNodeChild.remove();
+  }
+
+  // currentNodeChild.remove();
 }
 
 //close modal if clicked outside of modal
