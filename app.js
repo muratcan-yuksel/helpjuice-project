@@ -1,5 +1,7 @@
 //import necessary html elements
 import basicBlocks from "./basicBlocks.js";
+//import movecursor function
+import moveCursor from "./moveCursor.js";
 
 //append elements to the modal
 basicBlocks.forEach((block) => {
@@ -170,4 +172,9 @@ listItems.forEach((item) => {
     console.log(itemId + " is item id");
     modal_container.classList.remove("show");
   });
+});
+
+//add move cursor function on body click
+document.body.addEventListener("click", (e) => {
+  moveCursor();
 });
