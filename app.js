@@ -102,7 +102,11 @@ function getId() {
 
 function handleChosenElementPlaceholder() {
   let chosenElement = document.getElementById(currentInputField);
-  chosenElement.innerHTML = "";
+  if (chosenElement.innerHTML == "Type '/' for commands") {
+    chosenElement.innerHTML = "";
+  } else if (chosenElement.innerHTML != "Type '/' for commands") {
+    return;
+  }
   chosenElement.classList.remove("inputBeforeClick");
 }
 //call getId function when input field is clicked
