@@ -97,11 +97,14 @@ function getId() {
   let id = this.id;
   console.log(id);
   currentInputField = id;
-  document.getElementById(id).classList.remove("inputBeforeClick");
-  document.getElementById(id).innerHTML = "";
-  return id;
+  handleChosenElementPlaceholder();
 }
 
+function handleChosenElementPlaceholder() {
+  let chosenElement = document.getElementById(currentInputField);
+  chosenElement.innerHTML = "";
+  chosenElement.classList.remove("inputBeforeClick");
+}
 //call getId function when input field is clicked
 // inputField.forEach((input) => {
 //   input.addEventListener("click", getId);
