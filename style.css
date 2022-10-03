@@ -24,6 +24,14 @@ body {
   text-decoration: none;
   /* width: 100%; */
   width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: white;
+}
+.inputBeforeClick {
+  color: rgb(110, 110, 108);
+  font-size: 14px;
 }
 /* .modal */
 * {

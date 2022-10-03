@@ -43,12 +43,14 @@ let currentInputField;
 //create a new input field and append it to the inputWrapper class
 function createInputField() {
   const inputWrapper = document.querySelector(".inputWrapper");
-  const newinputField = document.createElement("INPUT");
-  newinputField.classList.add("inputField");
+  const newinputField = document.createElement("div");
+  newinputField.classList.add("inputField", "inputBeforeClick");
   // console.log(inputField.length);
   newinputField.setAttribute("id", Math.random());
-  newinputField.type = "text";
-  newinputField.placeholder = "Type '/' for commands";
+  // newinputField.type = "text";
+  newinputField.contentEditable = "true";
+  // newinputField.placeholder = "Type '/' for commands";
+  newinputField.innerHTML = "Type '/' for commands";
   inputWrapper.appendChild(newinputField);
 }
 // createInputField();
@@ -95,6 +97,8 @@ function getId() {
   let id = this.id;
   console.log(id);
   currentInputField = id;
+  document.getElementById(id).classList.remove("inputBeforeClick");
+  document.getElementById(id).innerHTML = "";
   return id;
 }
 
@@ -112,13 +116,6 @@ document.addEventListener("keydown", (e) => {
 
 //delete input field if backspace is clicked and there is no text in the input field
 function deleteInputField() {
-  // const inputWrapper = document.querySelector(".inputWrapper");
-  // const inputField = document.querySelectorAll(".inputField");
-  // inputField.forEach((input) => {
-  //   if (input.textContent == "") {
-  //     inputWrapper.removeChild(input);
-  //   }
-  // });
   console.log(currentInputField);
   const currentNodeChild = document.getElementById(currentInputField);
   console.log(currentNodeChild.value.length);
