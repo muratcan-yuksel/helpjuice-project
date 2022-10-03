@@ -1,5 +1,6 @@
 //import necessary html elements
 import basicBlocks from "./basicBlocks.js";
+
 //append elements to the modal
 basicBlocks.forEach((block) => {
   const container = document.createElement(block.container.type);
@@ -45,7 +46,7 @@ function createInputField() {
   const newinputField = document.createElement("INPUT");
   newinputField.classList.add("inputField");
   // console.log(inputField.length);
-  newinputField.setAttribute("id", inputField.length);
+  newinputField.setAttribute("id", Math.random());
   newinputField.type = "text";
   newinputField.placeholder = "Type '/' for commands";
   inputWrapper.appendChild(newinputField);
