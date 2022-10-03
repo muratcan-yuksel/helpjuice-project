@@ -47,7 +47,7 @@ function createInputField() {
   newinputField.placeholder = "Type '/' for commands";
   inputWrapper.appendChild(newinputField);
 }
-createInputField();
+// createInputField();
 
 //keydown function that reads the slash key and opens the modal
 function keydownFunction(event) {
@@ -63,21 +63,22 @@ function keydownFunction(event) {
     console.log("back");
   } else if (x == "Enter") {
     console.log("enter");
-    foo();
     createInputField();
     inputField = document.querySelectorAll(".inputField");
+    addKeydownFunctionToInputFields();
   }
 }
+
 let inputField = document.querySelectorAll(".inputField");
 //call the modal opening keydown function
-function foo() {
+function addKeydownFunctionToInputFields() {
   inputField.forEach((input) => {
     input.addEventListener("keydown", keydownFunction);
     console.log(input);
   });
   console.log(inputField);
 }
-foo();
+addKeydownFunctionToInputFields();
 //close modal if escape key is clicked
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
