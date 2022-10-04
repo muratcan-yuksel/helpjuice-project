@@ -54,6 +54,7 @@ function createInputField() {
   // newinputField.placeholder = "Type '/' for commands";
   newinputField.innerHTML = "Type '/' for commands";
   inputWrapper.appendChild(newinputField);
+  newinputField.focus();
 }
 // createInputField();
 

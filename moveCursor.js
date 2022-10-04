@@ -1,53 +1,54 @@
 function moveCursor() {
-  let wrapper = document.querySelector(".inputWrapper");
-  let selectedInput;
+  let wrapper = document.getElementById("main");
+  let selectedItem;
   let index = -1;
   let next;
 
   document.addEventListener(
     "keydown",
     function (event) {
-      let len = document.querySelectorAll(".inputField").length - 1;
+      let len = document.querySelectorAll(".listItem").length - 1;
       if (event.key === "ArrowDown") {
         console.log("down");
         index++;
         //down
-        if (selectedInput) {
-          removeClass(selectedInput, "selected");
-          next = document.querySelectorAll(".inputField")[index];
+        if (selectedItem) {
+          removeClass(selectedItem, "selected");
+          next = document.querySelectorAll(".listItem")[index];
           if (typeof next !== undefined && index <= len) {
-            selectedInput = next;
+            selectedItem = next;
           } else {
             index = 0;
-            selectedInput = document.querySelectorAll(".inputField")[0];
+            selectedItem = document.querySelectorAll(".listItem")[0];
           }
-          addClass(selectedInput, "selected");
+          addClass(selectedItem, "selected");
           console.log(index);
         } else {
           index = 0;
 
-          selectedInput = document.querySelectorAll(".inputField")[0];
-          addClass(selectedInput, "selected");
+          selectedItem = document.querySelectorAll(".listItem")[0];
+          addClass(selectedItem, "selected");
+          // selectedItem.focus();
         }
       } else if (event.key === "ArrowUp") {
         console.log("up");
         //up
-        if (selectedInput) {
-          removeClass(selectedInput, "selected");
+        if (selectedItem) {
+          removeClass(selectedItem, "selected");
           index--;
           console.log(index);
-          next = document.querySelectorAll(".inputField")[index];
+          next = document.querySelectorAll(".listItem")[index];
           if (typeof next !== undefined && index >= 0) {
-            selectedInput = next;
+            selectedItem = next;
           } else {
             index = len;
-            selectedInput = document.querySelectorAll(".inputField")[len];
+            selectedItem = document.querySelectorAll(".listItem")[len];
           }
-          addClass(selectedInput, "selected");
+          addClass(selectedItem, "selected");
         } else {
           index = 0;
-          selectedInput = document.querySelectorAll(".inputField")[len];
-          addClass(selectedInput, "selected");
+          selectedItem = document.querySelectorAll(".listItem")[len];
+          addClass(selectedItem, "selected");
         }
       }
     },

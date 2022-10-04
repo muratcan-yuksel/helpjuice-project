@@ -133,6 +133,6 @@ button {
   box-shadow: rgb(15 15 15 / 10%) 0px 0px 0px 1px;
   border-radius: 3px;
 }
-.inputField.selected {
+.listItem.selected {
   background: lightblue;
 }
