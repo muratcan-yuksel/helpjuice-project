@@ -2,6 +2,10 @@
 import basicBlocks from "./basicBlocks.js";
 //import movecursor function
 import moveCursor from "./moveCursor.js";
+//unique id function
+const uid = () => {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
 
 //append elements to the modal
 basicBlocks.forEach((block) => {
@@ -48,12 +52,13 @@ function createInputField() {
   const newinputField = document.createElement("div");
   newinputField.classList.add("inputField", "inputBeforeClick");
   // console.log(inputField.length);
-  newinputField.setAttribute("id", Math.random());
+  newinputField.setAttribute("id", uid());
   // newinputField.type = "text";
   newinputField.contentEditable = "true";
   // newinputField.placeholder = "Type '/' for commands";
   newinputField.innerHTML = "Type '/' for commands";
   inputWrapper.appendChild(newinputField);
+  //add focus to the newly created input field
   newinputField.focus();
 }
 // createInputField();
@@ -133,7 +138,7 @@ function deleteInputField() {
   if (currentNodeChild.value.length == 0 && currentInputField != 0) {
     currentNodeChild.remove();
   }
-
+  // currentNodeChild.previousSibling.textContent = "Theeeee";
   // currentNodeChild.remove();
 }
 
