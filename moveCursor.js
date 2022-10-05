@@ -13,14 +13,7 @@ function moveCursor() {
         console.log(selectedItem);
         selectedItem.classList.add("selected");
         selectedItem.previousElementSibling.classList.remove("selected");
-        // selectedItem.scrollIntoView();
-        // selectedItem.scrollIntoView({ block: "center" });
-        // selectedItem.scrollIntoView({ behavior: "smooth" });
         selectedItem.scrollIntoView({ block: "center", behavior: "smooth" });
-        // selectedItem.scrollIntoView({ block: "end", behavior: "smooth" });
-        // selectedItem.scrollIntoView({ block: "start", behavior: "smooth" });
-        // selectedItem.scrollIntoView({ block: "nearest", behavior: "smooth" });
-        // selectedItem.scrollIntoView({ block: "end", behavior: "smooth" });
       }
     } else if (e.key === "ArrowUp") {
       console.log("up");
@@ -31,14 +24,7 @@ function moveCursor() {
         console.log(selectedItem);
         selectedItem.classList.add("selected");
         selectedItem.nextElementSibling.classList.remove("selected");
-        // selectedItem.scrollIntoView();
-        // selectedItem.scrollIntoView({ block: "center" });
-        // selectedItem.scrollIntoView({ behavior: "smooth" });
         selectedItem.scrollIntoView({ block: "center", behavior: "smooth" });
-        // selectedItem.scrollIntoView({ block: "end", behavior: "smooth" });
-        // selectedItem.scrollIntoView({ block: "start", behavior: "smooth" });
-        // selectedItem.scrollIntoView({ block: "nearest", behavior: "smooth" });
-        // selectedItem.scrollIntoView({ block: "end", behavior: "smooth" });
       }
     }
   });
