@@ -42,6 +42,7 @@ basicBlocks.forEach((block) => {
 
 const modal_container = document.getElementById("modal_container");
 const modal = document.getElementById("modal");
+let modalOpen = false;
 //returns a nodelist of all the elements with the class name of "listItem"
 const listItems = document.querySelectorAll(".listItem");
 let currentInputFieldById;
@@ -75,12 +76,15 @@ function keydownFunction(event) {
   if (x == "/") {
     console.log("You pressed the '/' key!");
     modal_container.classList.add("show");
+    modalOpen = true;
+    console.log(modalOpen);
   } else if (x == "Backspace") {
     modal_container.classList.remove("show");
     console.log("back");
     deleteInputField();
-  } else if (x == "Enter") {
+  } else if (modalOpen == false && x == "Enter") {
     console.log("enter");
+    console.log(modalOpen);
     createInputField();
     inputField = document.querySelectorAll(".inputField");
     // inputFieldArray.push(inputField[inputField.length - 1]);
@@ -157,6 +161,7 @@ document.body.addEventListener("click", (e) => {
   console.log("body");
   if (e.target != modal) {
     modal_container.classList.remove("show");
+    modalOpen = false;
   }
 });
 
