@@ -136,3 +136,13 @@ button {
 .listItem.selected {
   background: lightblue;
 }
+[placeholder]:empty::before {
+  content: attr(placeholder);
+  color: #555;
+  /* background: red; */
+  font-size: 13px;
+}
+
+[placeholder]:empty:focus::before {
+  content: "";
+}

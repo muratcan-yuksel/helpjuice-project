@@ -53,10 +53,10 @@ function createInputField() {
   newinputField.classList.add("inputField", "inputBeforeClick");
   // console.log(inputField.length);
   newinputField.setAttribute("id", uid());
-  // newinputField.type = "text";
+  newinputField.setAttribute("type", "text");
   newinputField.contentEditable = "true";
-  // newinputField.placeholder = "Type '/' for commands";
-  newinputField.innerHTML = "Type '/' for commands";
+  newinputField.setAttribute("placeholder", "Type '/' for commands");
+  // newinputField.innerHTML = "Type '/' for commands";
   inputWrapper.appendChild(newinputField);
   //add focus to the newly created input field
   newinputField.focus();
@@ -133,11 +133,11 @@ document.addEventListener("keydown", (e) => {
 function deleteInputField() {
   console.log(currentInputField);
   const currentNodeChild = document.getElementById(currentInputField);
-  console.log(currentNodeChild.value.length);
-  //remove the current input field
-  if (currentNodeChild.value.length == 0 && currentInputField != 0) {
-    currentNodeChild.remove();
-  }
+  console.log(currentNodeChild);
+  // //remove the current input field
+  // if (currentNodeChild.value.length == 0 && currentInputField != 0) {
+  //   currentNodeChild.remove();
+  // }
   // currentNodeChild.previousSibling.textContent = "Theeeee";
   // currentNodeChild.remove();
 }
