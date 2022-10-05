@@ -90,6 +90,8 @@ function keydownFunction(event) {
     // inputFieldArray.push(inputField[inputField.length - 1]);
     console.log(inputFieldArray);
     addKeydownFunctionToInputFields();
+  } else if (modalOpen == true && x == "enter") {
+    console.log("modal open and enter");
   }
 }
 //get input fields here specifically for the keydown function to be attached
@@ -99,7 +101,6 @@ function addKeydownFunctionToInputFields() {
   inputField.forEach((input) => {
     input.addEventListener("keydown", keydownFunction);
     input.addEventListener("click", getId);
-    // input.addEventListener("focus", getId);
 
     console.log(input);
     // console.log(Array.from(inputField).indexOf(input));

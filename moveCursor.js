@@ -28,6 +28,11 @@ function moveCursor() {
       }
     }
   });
+
+  document.addEventListener("enter", (e) => {
+    console.log("enter yooo");
+    console.log(selectedItem);
+  });
 }
 
 export default moveCursor;
