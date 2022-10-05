@@ -28,6 +28,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   background: white;
+  margin-bottom: 10px;
 }
 .inputBeforeClick {
   color: rgb(110, 110, 108);
@@ -137,12 +138,12 @@ button {
   background: lightblue;
 }
 [placeholder]:empty::before {
-  content: attr(placeholder);
+  content: "";
   color: #555;
   /* background: red; */
   font-size: 13px;
 }
 
 [placeholder]:empty:focus::before {
-  content: "";
+  content: attr(placeholder);
 }
