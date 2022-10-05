@@ -74,6 +74,7 @@ function keydownFunction(event) {
   // console.log(inputField.textContent);
 
   if (x == "/") {
+    // event.preventDefault();
     console.log("You pressed the '/' key!");
     modal_container.classList.add("show");
     modalOpen = true;
@@ -90,7 +91,7 @@ function keydownFunction(event) {
     // inputFieldArray.push(inputField[inputField.length - 1]);
     console.log(inputFieldArray);
     addKeydownFunctionToInputFields();
-  } else if (modalOpen == true && x == "enter") {
+  } else if (modalOpen == true && x == "Enter") {
     console.log("modal open and enter");
   }
 }
