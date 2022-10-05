@@ -137,11 +137,13 @@ document.addEventListener("keydown", (e) => {
 function deleteInputField() {
   console.log(currentInputFieldById);
   const currentNodeChild = document.getElementById(currentInputFieldById);
-  let prevSibling = currentNodeChild.previousSibling;
+  let prevSibling = currentNodeChild.previousElementSibling;
   console.log(currentNodeChild);
   // //remove the current input field
   console.log(currentNodeChild.textContent.length);
+
   if (currentNodeChild.textContent.length == 0 && currentInputFieldById != 0) {
+    console.log(currentNodeChild.previousElementSibling.id);
     prevSibling.focus();
     currentNodeChild.remove();
     currentInputFieldById = prevSibling.id;
