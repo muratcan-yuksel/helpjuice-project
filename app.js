@@ -144,6 +144,7 @@ function deleteInputField() {
   if (currentNodeChild.textContent.length == 0 && currentInputFieldById != 0) {
     prevSibling.focus();
     currentNodeChild.remove();
+    currentInputFieldById = prevSibling.id;
   }
   // currentNodeChild.previousSibling.textContent = "Theeeee";
   // currentNodeChild.remove();
