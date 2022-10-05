@@ -23,11 +23,14 @@ function moveCursor() {
           }
           addClass(selectedItem, "selected");
           console.log(index);
+          console.log(selectedItem);
+          selectedItem.focus();
         } else {
           index = 0;
 
           selectedItem = document.querySelectorAll(".listItem")[0];
           addClass(selectedItem, "selected");
+          console.log(selectedItem);
           // selectedItem.focus();
         }
       } else if (event.key === "ArrowUp") {

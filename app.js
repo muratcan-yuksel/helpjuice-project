@@ -44,7 +44,7 @@ const modal_container = document.getElementById("modal_container");
 const modal = document.getElementById("modal");
 //returns a nodelist of all the elements with the class name of "listItem"
 const listItems = document.querySelectorAll(".listItem");
-let currentInputField;
+let currentInputFieldById;
 
 //create a new input field and append it to the inputWrapper class
 function createInputField() {
@@ -58,8 +58,10 @@ function createInputField() {
   newinputField.setAttribute("placeholder", "Type '/' for commands");
   // newinputField.innerHTML = "Type '/' for commands";
   inputWrapper.appendChild(newinputField);
-  //add focus to the newly created input field
+  //add focus to the newly created input field and get the id of the focused element
   newinputField.focus();
+  console.log(newinputField.id);
+  currentInputFieldById = newinputField.id;
 }
 // createInputField();
 
@@ -93,6 +95,8 @@ function addKeydownFunctionToInputFields() {
   inputField.forEach((input) => {
     input.addEventListener("keydown", keydownFunction);
     input.addEventListener("click", getId);
+    // input.addEventListener("focus", getId);
+
     console.log(input);
     // console.log(Array.from(inputField).indexOf(input));
   });
@@ -104,12 +108,12 @@ addKeydownFunctionToInputFields();
 function getId() {
   let id = this.id;
   console.log(id);
-  currentInputField = id;
+  currentInputFieldById = id;
   handleChosenElementPlaceholder();
 }
 
 function handleChosenElementPlaceholder() {
-  let chosenElement = document.getElementById(currentInputField);
+  let chosenElement = document.getElementById(currentInputFieldById);
   if (chosenElement.innerHTML == "Type '/' for commands") {
     chosenElement.innerHTML = "";
   } else if (chosenElement.innerHTML != "Type '/' for commands") {
@@ -131,13 +135,16 @@ document.addEventListener("keydown", (e) => {
 
 //delete input field if backspace is clicked and there is no text in the input field
 function deleteInputField() {
-  console.log(currentInputField);
-  const currentNodeChild = document.getElementById(currentInputField);
+  console.log(currentInputFieldById);
+  const currentNodeChild = document.getElementById(currentInputFieldById);
+  let prevSibling = currentNodeChild.previousSibling;
   console.log(currentNodeChild);
   // //remove the current input field
-  // if (currentNodeChild.value.length == 0 && currentInputField != 0) {
-  //   currentNodeChild.remove();
-  // }
+  console.log(currentNodeChild.textContent.length);
+  if (currentNodeChild.textContent.length == 0 && currentInputFieldById != 0) {
+    prevSibling.focus();
+    currentNodeChild.remove();
+  }
   // currentNodeChild.previousSibling.textContent = "Theeeee";
   // currentNodeChild.remove();
 }
