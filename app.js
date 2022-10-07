@@ -83,15 +83,19 @@ function keydownFunction(event) {
     modal_container.classList.remove("show");
     console.log("back");
     deleteInputField();
-  } else if (modalOpen == false && x == "Enter") {
+  }
+  //when modal is closed and enter is clicked without the shift key
+  else if (modalOpen == false && event.shiftKey == false && x == "Enter") {
     console.log("enter");
-    console.log(modalOpen);
     createInputField();
     inputField = document.querySelectorAll(".inputField");
     // inputFieldArray.push(inputField[inputField.length - 1]);
     console.log(inputFieldArray);
     addKeydownFunctionToInputFields();
-  } else if (modalOpen == true && x == "Enter") {
+  }
+  //when enter is clicked while modal is open
+  //this is where you'll get the id of the clicked element
+  else if (modalOpen == true && x == "Enter") {
     console.log("modal open and enter");
   }
 }
