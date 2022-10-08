@@ -34,6 +34,9 @@ body {
   color: rgb(110, 110, 108);
   font-size: 14px;
 }
+.newElement {
+  border: 5px solid red;
+}
 /* .modal */
 * {
   box-sizing: border-box;

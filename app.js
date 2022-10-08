@@ -48,11 +48,10 @@ const listItems = document.querySelectorAll(".listItem");
 let currentInputFieldById;
 let modalItemById;
 
-//create a new input field and append it to the inputWrapper class
-function createInputField() {
+const newElementAttributes = (elementType, elementClass, elementClassTwo) => {
   const inputWrapper = document.querySelector(".inputWrapper");
-  const newinputField = document.createElement("div");
-  newinputField.classList.add("inputField", "inputBeforeClick");
+  const newinputField = document.createElement(elementType);
+  newinputField.classList.add(elementClass, elementClassTwo);
   // console.log(inputField.length);
   newinputField.setAttribute("id", uid());
   newinputField.setAttribute("type", "text");
@@ -64,23 +63,18 @@ function createInputField() {
   newinputField.focus();
   console.log(newinputField.id);
   currentInputFieldById = newinputField.id;
+};
+
+//create a new input field and append it to the inputWrapper class
+function createInputField() {
+  newElementAttributes("div", "inputField", "inputBeforeClick");
 }
 // createInputField();
 
 function createNewElement() {
-  const inputWrapper = document.querySelector(".inputWrapper");
   console.log(modalItemById);
   if (modalItemById == "itemH1") {
-    const newElement = document.createElement("h1");
-    // newElement.classList.add("inputField", "inputBeforeClick");
-    newElement.setAttribute("id", uid());
-    // newElement.setAttribute("type", "text");
-    newElement.contentEditable = "true";
-    // newElement.setAttribute("placeholder", "Type '/' for commands");
-    inputWrapper.appendChild(newElement);
-    newElement.focus();
-    console.log(newElement.id);
-    currentInputFieldById = newElement.id;
+    newElementAttributes("h1", "inputField", "inputBeforeClick");
   }
   // const elementType=
 }
@@ -116,6 +110,7 @@ function keydownFunction(event) {
   else if (modalOpen == true && x == "Enter") {
     console.log("modal open and enter");
     createNewElement();
+    addKeydownFunctionToInputFields();
   }
 }
 //get input fields here specifically for the keydown function to be attached
