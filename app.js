@@ -48,8 +48,9 @@ const listItems = document.querySelectorAll(".listItem");
 let currentInputFieldById;
 let modalItemById;
 
+const inputWrapper = document.querySelector(".inputWrapper");
+
 const newElementAttributes = (elementType, elementClass, elementClassTwo) => {
-  const inputWrapper = document.querySelector(".inputWrapper");
   const newinputField = document.createElement(elementType);
   newinputField.classList.add(elementClass, elementClassTwo);
   // console.log(inputField.length);
@@ -63,6 +64,22 @@ const newElementAttributes = (elementType, elementClass, elementClassTwo) => {
   newinputField.focus();
   console.log(newinputField.id);
   currentInputFieldById = newinputField.id;
+};
+
+const createTodo = () => {
+  const todoContainer = document.createElement("div");
+  const todoCheckbox = document.createElement("input");
+  todoCheckbox.classList.add("todoCheckbox");
+  todoCheckbox.setAttribute("type", "checkbox");
+  todoCheckbox.setAttribute("id", uid());
+  const todoLabel = document.createElement("label");
+  todoLabel.classList.add("inputField", "checkBoxLabel");
+  todoLabel.setAttribute("for", todoCheckbox.id);
+  todoLabel.contentEditable = "true";
+  todoContainer.appendChild(todoCheckbox);
+  todoContainer.appendChild(todoLabel);
+  todoContainer.focus();
+  inputWrapper.appendChild(todoContainer);
 };
 
 //create a new input field and append it to the inputWrapper class
@@ -80,6 +97,8 @@ function createNewElement() {
     newElementAttributes("h2", "inputField");
   } else if (modalItemById == "itemH3") {
     newElementAttributes("h3", "inputField");
+  } else if (modalItemById == "itemTodo") {
+    createTodo();
   }
   // const elementType=
   modal_container.classList.remove("show");
@@ -259,13 +278,3 @@ document.addEventListener("keydown", (e) => {
     }
   }
 });
-
-// document.addEventListener("Enter", (e) => {
-//   console.log("enter yooo");
-//   console.log(selectedItem);
-// });
-
-//add move cursor function on body click
-// document.body.addEventListener("click", (e) => {
-//   moveCursor();
-// });

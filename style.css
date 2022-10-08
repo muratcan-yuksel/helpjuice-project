@@ -33,6 +33,10 @@ body {
   color: rgb(110, 110, 108);
   font-size: 14px;
 }
+.checkBoxLabel {
+  text-decoration: none;
+  /* width: 100% !important; */
+}
 
 /* .modal */
 * {
