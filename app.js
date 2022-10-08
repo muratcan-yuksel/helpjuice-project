@@ -68,6 +68,7 @@ const newElementAttributes = (elementType, elementClass, elementClassTwo) => {
 //create a new input field and append it to the inputWrapper class
 function createInputField() {
   newElementAttributes("div", "inputField", "inputBeforeClick");
+  modal_container.classList.remove("show");
 }
 // createInputField();
 
@@ -81,6 +82,7 @@ function createNewElement() {
     newElementAttributes("h3", "inputField");
   }
   // const elementType=
+  modal_container.classList.remove("show");
 }
 
 //keydown function that reads the slash key and opens the modal
@@ -216,6 +218,9 @@ listItems.forEach((item) => {
     console.log(itemId + " is item id");
     modalItemById = itemId;
     modal_container.classList.remove("show");
+    createNewElement();
+    inputField = document.querySelectorAll(".inputField");
+    addKeydownFunctionToInputFields();
   });
 });
 
