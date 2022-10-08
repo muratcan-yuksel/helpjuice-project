@@ -75,6 +75,10 @@ function createNewElement() {
   console.log(modalItemById);
   if (modalItemById == "itemH1") {
     newElementAttributes("h1", "inputField");
+  } else if (modalItemById == "itemH2") {
+    newElementAttributes("h2", "inputField");
+  } else if (modalItemById == "itemH3") {
+    newElementAttributes("h3", "inputField");
   }
   // const elementType=
 }
