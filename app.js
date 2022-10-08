@@ -74,12 +74,11 @@ function createInputField() {
 function createNewElement() {
   console.log(modalItemById);
   if (modalItemById == "itemH1") {
-    newElementAttributes("h1", "inputField", "inputBeforeClick");
+    newElementAttributes("h1", "inputField");
   }
   // const elementType=
 }
 
-let inputFieldArray = [];
 //keydown function that reads the slash key and opens the modal
 function keydownFunction(event) {
   let x = event.key;
@@ -102,8 +101,6 @@ function keydownFunction(event) {
     console.log("enter");
     createInputField();
     inputField = document.querySelectorAll(".inputField");
-    // inputFieldArray.push(inputField[inputField.length - 1]);
-    console.log(inputFieldArray);
     addKeydownFunctionToInputFields();
   }
   //what you do here, do the same with clicked version
