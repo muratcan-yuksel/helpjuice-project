@@ -46,6 +46,7 @@ let modalOpen = false;
 //returns a nodelist of all the elements with the class name of "listItem"
 const listItems = document.querySelectorAll(".listItem");
 let currentInputFieldById;
+let modalItemById;
 
 //create a new input field and append it to the inputWrapper class
 function createInputField() {
@@ -65,6 +66,24 @@ function createInputField() {
   currentInputFieldById = newinputField.id;
 }
 // createInputField();
+
+function createNewElement() {
+  const inputWrapper = document.querySelector(".inputWrapper");
+  console.log(modalItemById);
+  if (modalItemById == "itemH1") {
+    const newElement = document.createElement("h1");
+    // newElement.classList.add("inputField", "inputBeforeClick");
+    newElement.setAttribute("id", uid());
+    // newElement.setAttribute("type", "text");
+    newElement.contentEditable = "true";
+    // newElement.setAttribute("placeholder", "Type '/' for commands");
+    inputWrapper.appendChild(newElement);
+    newElement.focus();
+    console.log(newElement.id);
+    currentInputFieldById = newElement.id;
+  }
+  // const elementType=
+}
 
 let inputFieldArray = [];
 //keydown function that reads the slash key and opens the modal
@@ -93,10 +112,10 @@ function keydownFunction(event) {
     console.log(inputFieldArray);
     addKeydownFunctionToInputFields();
   }
-  //when enter is clicked while modal is open
-  //this is where you'll get the id of the clicked element
+  //what you do here, do the same with clicked version
   else if (modalOpen == true && x == "Enter") {
     console.log("modal open and enter");
+    createNewElement();
   }
 }
 //get input fields here specifically for the keydown function to be attached
@@ -197,6 +216,7 @@ listItems.forEach((item) => {
       itemId = e.target.id;
     }
     console.log(itemId + " is item id");
+    modalItemById = itemId;
     modal_container.classList.remove("show");
   });
 });
@@ -215,6 +235,8 @@ document.addEventListener("keydown", (e) => {
       console.log(index);
       selectedItem = cursorItems[index];
       console.log(selectedItem);
+      console.log(selectedItem.id);
+      modalItemById = selectedItem.id;
       selectedItem.classList.add("selected");
       selectedItem.previousElementSibling.classList.remove("selected");
       selectedItem.scrollIntoView({ block: "center", behavior: "smooth" });
@@ -226,6 +248,8 @@ document.addEventListener("keydown", (e) => {
       console.log(index);
       selectedItem = cursorItems[index];
       console.log(selectedItem);
+      console.log(selectedItem.id);
+      modalItemById = selectedItem.id;
       selectedItem.classList.add("selected");
       selectedItem.nextElementSibling.classList.remove("selected");
       selectedItem.scrollIntoView({ block: "center", behavior: "smooth" });
