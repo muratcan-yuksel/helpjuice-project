@@ -110,6 +110,8 @@ function keydownFunction(event) {
   else if (modalOpen == true && x == "Enter") {
     console.log("modal open and enter");
     createNewElement();
+    //ok I have no idea why but this is indispensable here
+    inputField = document.querySelectorAll(".inputField");
     addKeydownFunctionToInputFields();
   }
 }
