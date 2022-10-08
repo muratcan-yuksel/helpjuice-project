@@ -1,7 +1,7 @@
 //import necessary html elements
 import basicBlocks from "./basicBlocks.js";
 //import movecursor function
-import moveCursor from "./moveCursor.js";
+// import moveCursor from "./moveCursor.js";
 //unique id function
 const uid = () => {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -201,7 +201,44 @@ listItems.forEach((item) => {
   });
 });
 
-//add move cursor function on body click
-document.body.addEventListener("click", (e) => {
-  moveCursor();
+//move cursor functionality
+
+let cursorItems = document.querySelectorAll(".listItem");
+let selectedItem;
+let index = -1;
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowDown") {
+    console.log("down");
+    if (index < cursorItems.length - 1) {
+      index++;
+      console.log(index);
+      selectedItem = cursorItems[index];
+      console.log(selectedItem);
+      selectedItem.classList.add("selected");
+      selectedItem.previousElementSibling.classList.remove("selected");
+      selectedItem.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  } else if (e.key === "ArrowUp") {
+    console.log("up");
+    if (index > 0) {
+      index--;
+      console.log(index);
+      selectedItem = cursorItems[index];
+      console.log(selectedItem);
+      selectedItem.classList.add("selected");
+      selectedItem.nextElementSibling.classList.remove("selected");
+      selectedItem.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  }
 });
+
+// document.addEventListener("Enter", (e) => {
+//   console.log("enter yooo");
+//   console.log(selectedItem);
+// });
+
+//add move cursor function on body click
+// document.body.addEventListener("click", (e) => {
+//   moveCursor();
+// });
