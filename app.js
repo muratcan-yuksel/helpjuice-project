@@ -100,6 +100,8 @@ function createNewElement() {
     newElementAttributes("h3", "inputField");
   } else if (modalItemById == "itemTodo") {
     createTodo();
+  } else if (modalItemById == "itemText") {
+    newElementAttributes("p", "inputField");
   }
   // const elementType=
   modal_container.classList.remove("show");
