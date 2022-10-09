@@ -72,7 +72,7 @@ const createTodo = () => {
   const todoCheckbox = document.createElement("input");
   todoCheckbox.classList.add("todoCheckbox");
   todoCheckbox.setAttribute("type", "checkbox");
-  todoCheckbox.setAttribute("id", uid());
+  todoContainer.setAttribute("id", uid());
   const todoLabel = document.createElement("label");
   todoLabel.classList.add("checkBoxLabel");
   // todoLabel.setAttribute("for", todoCheckbox.id);
@@ -153,10 +153,17 @@ function addKeydownFunctionToInputFields() {
 }
 addKeydownFunctionToInputFields();
 
+function foo() {
+  if (this.className == "todoCheckbox" || this.className == "checkBoxLabel") {
+    console.log(this.previousElementSibling.className);
+  }
+}
+
 //get the id of the clicked input field
 function getId() {
   let id = this.id;
   console.log(id);
+  console.log(this.className);
   currentInputFieldById = id;
   handleChosenElementPlaceholder();
 }
