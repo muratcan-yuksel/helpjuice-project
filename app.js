@@ -50,15 +50,19 @@ let modalItemById;
 
 const inputWrapper = document.querySelector(".inputWrapper");
 
-const newElementAttributes = (elementType, elementClass, elementClassTwo) => {
+const newElementAttributes = (
+  elementType,
+  elementClass,
+  elementPlaceholder
+) => {
   const newinputField = document.createElement(elementType);
-  newinputField.classList.add(elementClass, elementClassTwo);
+  newinputField.classList.add(elementClass);
   // console.log(inputField.length);
   newinputField.setAttribute("id", uid());
   newinputField.setAttribute("type", "text");
   newinputField.setAttribute("data", "myData");
   newinputField.contentEditable = "true";
-  newinputField.setAttribute("placeholder", "Type '/' for commands");
+  newinputField.setAttribute("placeholder", elementPlaceholder);
   inputWrapper.appendChild(newinputField);
   //add focus to the newly created input field and get the id of the focused element
   newinputField.focus();
@@ -85,7 +89,7 @@ const createTodo = () => {
 
 //create a new input field and append it to the inputWrapper class
 function createInputField() {
-  newElementAttributes("div", "inputField", "inputBeforeClick");
+  newElementAttributes("div", "inputField", "Type '/' for commands");
   modal_container.classList.remove("show");
 }
 // createInputField();
@@ -93,15 +97,15 @@ function createInputField() {
 function createNewElement() {
   console.log(modalItemById);
   if (modalItemById == "itemH1") {
-    newElementAttributes("h1", "inputField");
+    newElementAttributes("h1", "inputField", "Heading 1");
   } else if (modalItemById == "itemH2") {
-    newElementAttributes("h2", "inputField");
+    newElementAttributes("h2", "inputField", "Heading 2");
   } else if (modalItemById == "itemH3") {
-    newElementAttributes("h3", "inputField");
+    newElementAttributes("h3", "inputField", "Heading 3");
   } else if (modalItemById == "itemTodo") {
     createTodo();
   } else if (modalItemById == "itemText") {
-    newElementAttributes("p", "inputField");
+    newElementAttributes("p", "inputField", "Type '/' for commands");
   }
   // const elementType=
   modal_container.classList.remove("show");
