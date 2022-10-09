@@ -16,6 +16,11 @@ body {
   height: 100%;
   width: 750px;
 }
+.mainTitle {
+  /* border: solid; */
+  width: 100%;
+  text-align: center;
+}
 .inputWrapper {
   width: 100%;
 }

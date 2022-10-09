@@ -56,9 +56,9 @@ const newElementAttributes = (elementType, elementClass, elementClassTwo) => {
   // console.log(inputField.length);
   newinputField.setAttribute("id", uid());
   newinputField.setAttribute("type", "text");
+  newinputField.setAttribute("data", "myData");
   newinputField.contentEditable = "true";
   newinputField.setAttribute("placeholder", "Type '/' for commands");
-  // newinputField.innerHTML = "Type '/' for commands";
   inputWrapper.appendChild(newinputField);
   //add focus to the newly created input field and get the id of the focused element
   newinputField.focus();
