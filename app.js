@@ -1,7 +1,5 @@
 //import necessary html elements
 import basicBlocks from "./basicBlocks.js";
-//import movecursor function
-// import moveCursor from "./moveCursor.js";
 //unique id function
 const uid = () => {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -57,7 +55,6 @@ const newElementAttributes = (
 ) => {
   const newinputField = document.createElement(elementType);
   newinputField.classList.add(elementClass);
-  // console.log(inputField.length);
   newinputField.setAttribute("id", uid());
   newinputField.setAttribute("type", "text");
   newinputField.setAttribute("data", "myData");
@@ -114,8 +111,6 @@ function createNewElement() {
 //keydown function that reads the slash key and opens the modal
 function keydownFunction(event) {
   let x = event.key;
-  // console.log(x);
-  // console.log(inputField.textContent);
 
   if (x == "/") {
     // event.preventDefault();
@@ -183,10 +178,6 @@ function handleChosenElementPlaceholder() {
   }
   chosenElement.classList.remove("inputBeforeClick");
 }
-//call getId function when input field is clicked
-// inputField.forEach((input) => {
-//   input.addEventListener("click", getId);
-// });
 
 //close modal if escape key is clicked
 document.addEventListener("keydown", (e) => {
