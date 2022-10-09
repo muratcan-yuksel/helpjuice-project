@@ -68,13 +68,14 @@ const newElementAttributes = (elementType, elementClass, elementClassTwo) => {
 
 const createTodo = () => {
   const todoContainer = document.createElement("div");
+  todoContainer.classList.add("inputField");
   const todoCheckbox = document.createElement("input");
   todoCheckbox.classList.add("todoCheckbox");
   todoCheckbox.setAttribute("type", "checkbox");
   todoCheckbox.setAttribute("id", uid());
   const todoLabel = document.createElement("label");
-  todoLabel.classList.add("inputField", "checkBoxLabel");
-  todoLabel.setAttribute("for", todoCheckbox.id);
+  todoLabel.classList.add("checkBoxLabel");
+  // todoLabel.setAttribute("for", todoCheckbox.id);
   todoLabel.contentEditable = "true";
   todoContainer.appendChild(todoCheckbox);
   todoContainer.appendChild(todoLabel);
