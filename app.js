@@ -67,23 +67,6 @@ const newElementAttributes = (
   currentInputFieldById = newinputField.id;
 };
 
-const createTodo = () => {
-  const todoContainer = document.createElement("div");
-  todoContainer.classList.add("inputField");
-  const todoCheckbox = document.createElement("input");
-  todoCheckbox.classList.add("todoCheckbox");
-  todoCheckbox.setAttribute("type", "checkbox");
-  todoContainer.setAttribute("id", uid());
-  const todoLabel = document.createElement("label");
-  todoLabel.classList.add("checkBoxLabel");
-  // todoLabel.setAttribute("for", todoCheckbox.id);
-  todoLabel.contentEditable = "true";
-  todoContainer.appendChild(todoCheckbox);
-  todoContainer.appendChild(todoLabel);
-  todoContainer.focus();
-  inputWrapper.appendChild(todoContainer);
-};
-
 //create a new input field and append it to the inputWrapper class
 function createInputField() {
   newElementAttributes("div", "inputField", "Type '/' for commands");
@@ -99,8 +82,6 @@ function createNewElement() {
     newElementAttributes("h2", "inputField", "Heading 2");
   } else if (modalItemById == "itemH3") {
     newElementAttributes("h3", "inputField", "Heading 3");
-  } else if (modalItemById == "itemTodo") {
-    createTodo();
   } else if (modalItemById == "itemText") {
     newElementAttributes("p", "inputField", "Type '/' for commands");
   }
@@ -153,12 +134,6 @@ function addKeydownFunctionToInputFields() {
   console.log(inputField);
 }
 addKeydownFunctionToInputFields();
-
-function foo() {
-  if (this.className == "todoCheckbox" || this.className == "checkBoxLabel") {
-    console.log(this.previousElementSibling.className);
-  }
-}
 
 //get the id of the clicked input field
 function getId() {
