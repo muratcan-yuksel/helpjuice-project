@@ -145,6 +145,7 @@ function addKeydownFunctionToInputFields() {
         addKeydownFunctionToInputFields;
       }
     }
+    foo();
 
     console.log(input);
     // console.log(Array.from(inputField).indexOf(input));
