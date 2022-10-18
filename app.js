@@ -138,7 +138,7 @@ function addKeydownFunctionToInputFields() {
     input.addEventListener("input", foo);
 
     function foo() {
-      if (input.innerHTML == "/") {
+      if (input.innerHTML.includes("/")) {
         modal_container.classList.add("show");
         modalOpen = true;
         // alert(input);
