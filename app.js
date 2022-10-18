@@ -97,7 +97,7 @@ function createNewElement() {
 
 //keydown function that reads the slash key and opens the modal
 function keydownFunction(event) {
-  let x = event.keyCode;
+  let x = event.which;
 
   if (x == 111) {
     // event.preventDefault();
