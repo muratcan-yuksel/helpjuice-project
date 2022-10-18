@@ -142,9 +142,13 @@ function addKeydownFunctionToInputFields() {
         modal_container.classList.add("show");
         modalOpen = true;
         addKeydownFunctionToInputFields;
+      } else if (input.textContent.includes("/") && input.textContent == "/") {
+        modal_container.classList.add("show");
+        modalOpen = true;
+        input.textContent = "";
+        addKeydownFunctionToInputFields;
       }
     }
-    // mobileKeydown();
 
     console.log(input);
     // console.log(Array.from(inputField).indexOf(input));
