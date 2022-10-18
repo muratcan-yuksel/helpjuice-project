@@ -4,6 +4,8 @@ import basicBlocks from "./basicBlocks.js";
 const uid = () => {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
+//start with focusing to the first element
+document.getElementById("0").focus();
 
 //append elements to the modal
 basicBlocks.forEach((block) => {
