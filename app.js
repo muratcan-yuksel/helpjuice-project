@@ -135,10 +135,10 @@ function addKeydownFunctionToInputFields() {
     input.addEventListener("keydown", keydownFunction);
     input.addEventListener("click", getId);
     //trying to make it work for the mobile devices
-    input.addEventListener("input", foo);
+    input.addEventListener("input", mobileKeydown);
 
-    function foo() {
-      if (input.innerHTML.includes("/")) {
+    function mobileKeydown() {
+      if (input.textContent.includes("/")) {
         modal_container.classList.add("show");
         modalOpen = true;
         // alert(input);
@@ -146,7 +146,7 @@ function addKeydownFunctionToInputFields() {
         addKeydownFunctionToInputFields;
       }
     }
-    foo();
+    mobileKeydown();
 
     console.log(input);
     // console.log(Array.from(inputField).indexOf(input));
