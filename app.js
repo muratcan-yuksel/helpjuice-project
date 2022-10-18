@@ -133,11 +133,13 @@ function addKeydownFunctionToInputFields() {
   inputField.forEach((input) => {
     input.addEventListener("keydown", keydownFunction);
     input.addEventListener("click", getId);
-    //try to make it work for the mobile devices
-    if (input.textContent == "/") {
-      modal_container.classList.add("show");
-      modalOpen = true;
-    }
+    //trying to make it work for the mobile devices
+    input.addEventListener("touch", keydownFunction);
+    // if (input.textContent == "/") {
+    //   modal_container.classList.add("show");
+    //   modalOpen = true;
+    //   input.textContent = "";
+    // }
 
     console.log(input);
     // console.log(Array.from(inputField).indexOf(input));
