@@ -141,8 +141,6 @@ function addKeydownFunctionToInputFields() {
       if (input.textContent.includes("/")) {
         modal_container.classList.add("show");
         modalOpen = true;
-        // alert(input);
-        input.textContent = "";
         addKeydownFunctionToInputFields;
       }
     }
