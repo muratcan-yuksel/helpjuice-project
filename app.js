@@ -75,6 +75,7 @@ const newElementAttributes = (
 function createInputField() {
   newElementAttributes("div", "inputField", "Type '/' for commands");
   modal_container.classList.remove("show");
+  addKeydownFunctionToInputFields();
 }
 // createInputField();
 
