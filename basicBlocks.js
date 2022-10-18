@@ -11,14 +11,14 @@ const basicBlocks = [
     },
   },
   {
-    container: { type: "div", class: "listItem", id: "itemTodo" },
-    image: { type: "img", class: "icon", src: "/assets/todo.png" },
+    container: { type: "div", class: "listItem", id: "itemQuote" },
+    image: { type: "img", class: "icon", src: "/assets/quote.png" },
     divider: { type: "div", class: "listItemDivider" },
-    title: { type: "h4", class: "listItemTitle", text: "To-do list" },
+    title: { type: "h4", class: "listItemTitle", text: "Quote" },
     para: {
       type: "p",
       class: "listItemPara",
-      text: "Track tasks with a to-do list.",
+      text: "Capture a quote.",
     },
   },
   {

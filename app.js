@@ -51,10 +51,11 @@ const inputWrapper = document.querySelector(".inputWrapper");
 const newElementAttributes = (
   elementType,
   elementClass,
-  elementPlaceholder
+  elementPlaceholder,
+  elementClassTwo
 ) => {
   const newinputField = document.createElement(elementType);
-  newinputField.classList.add(elementClass);
+  newinputField.classList.add(elementClass, elementClassTwo);
   newinputField.setAttribute("id", uid());
   newinputField.setAttribute("type", "text");
   newinputField.setAttribute("data", "myData");
@@ -84,6 +85,8 @@ function createNewElement() {
     newElementAttributes("h3", "inputField", "Heading 3");
   } else if (modalItemById == "itemText") {
     newElementAttributes("p", "inputField", "Type '/' for commands");
+  } else if (modalItemById == "itemQuote") {
+    newElementAttributes("p", "inputField", "Empty quote", "quotes");
   }
   // const elementType=
   modal_container.classList.remove("show");

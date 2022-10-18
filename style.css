@@ -149,3 +149,7 @@ button {
 [placeholder]:empty:focus::before {
   content: attr(placeholder);
 }
+.quotes {
+  border-left: 3px solid black;
+  padding-left: 1rem;
+}
