@@ -133,12 +133,18 @@ function addKeydownFunctionToInputFields() {
   inputField.forEach((input) => {
     input.addEventListener("keydown", keydownFunction);
     input.addEventListener("click", getId);
+    //try to make it work for the mobile devices
+    if (input.textContent == "/") {
+      modal_container.classList.add("show");
+      modalOpen = true;
+    }
 
     console.log(input);
     // console.log(Array.from(inputField).indexOf(input));
   });
   console.log(inputField);
 }
+
 addKeydownFunctionToInputFields();
 
 //get the id of the clicked input field
