@@ -4,6 +4,7 @@ import basicBlocks from "./basicBlocks.js";
 const uid = () => {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
+
 //start with focusing to the first element
 document.getElementById("0").focus();
 
@@ -96,28 +97,28 @@ function createNewElement() {
 
 //keydown function that reads the slash key and opens the modal
 function keydownFunction(event) {
-  let x = event.key;
+  let x = event.keyCode;
 
-  if (x == "/") {
+  if (x == 111) {
     // event.preventDefault();
     console.log("You pressed the '/' key!");
     modal_container.classList.add("show");
     modalOpen = true;
     console.log(modalOpen);
-  } else if (x == "Backspace") {
+  } else if (x == 8) {
     modal_container.classList.remove("show");
     console.log("back");
     deleteInputField();
   }
   //when modal is closed and enter is clicked without the shift key
-  else if (modalOpen == false && event.shiftKey == false && x == "Enter") {
+  else if (modalOpen == false && event.shiftKey == false && x == 13) {
     console.log("enter");
     createInputField();
     inputField = document.querySelectorAll(".inputField");
     addKeydownFunctionToInputFields();
   }
   //what you do here, do the same with clicked version
-  else if (modalOpen == true && x == "Enter") {
+  else if (modalOpen == true && x == 13) {
     console.log("modal open and enter");
     createNewElement();
     //ok I have no idea why but this is indispensable here
