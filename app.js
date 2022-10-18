@@ -144,7 +144,7 @@ function addKeydownFunctionToInputFields() {
         addKeydownFunctionToInputFields;
       }
     }
-    mobileKeydown();
+    // mobileKeydown();
 
     console.log(input);
     // console.log(Array.from(inputField).indexOf(input));
